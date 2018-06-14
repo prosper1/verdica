@@ -1,0 +1,70 @@
+{% load staticfiles %}
+<!DOCTYPE html><html lang="en" class="bg-dark">
+<!-- Mirrored from flatfull.com/themes/note/signin.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Mar 2018 21:03:14 GMT -->
+<head>
+    <meta charset="utf-8" /> <title></title>
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="css/font.css" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/app.v1.css' %}" type="text/css" />
+    <!--[if lt IE 9]> <script src="{% static 'js/ie/html5shiv.js' %}"></script>
+<script src="{% static 'js/ie/respond.min.js' %}"></script>
+<script src="{% static 'js/ie/excanvas.js' %}"></script> <![endif]--></head><body class="">
+
+<section id="content" class="m-t-lg wrapper-md animated fadeInUp">
+    <div class="container aside-xxl"> <a class="navbar-brand block" href="index.html">MediNote</a>
+        <section class="panel panel-default bg-white m-t-lg">
+            <header class="panel-heading text-center">
+
+                <strong>Sign in</strong> </header>
+                
+    {% if form.errors %}
+
+<p class="text-center"+>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+
+<p class="text-center">Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+
+<p class="text-center">Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+
+                <style>
+ 
+                        
+                        :focus{
+                            border-color:#66afe9;
+                            outline:0;
+                            -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+                            box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);}
+                        }
+                        
+                        
+                        </style>
+            <form method="post" action="{% url 'login' %}" class="panel-body wrapper-lg">{% csrf_token %}
+                {% if next %}
+ 					<input type="hidden" name="next" value="{{ next }}" />
+ 					{% endif %}
+                <div class="form-group"> <label class="control-label">Username</label>
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Password</label>
+                    {{ form.password }} </div>
+                <div class="checkbox"> <label> <input type="checkbox"> Keep me logged in </label> </div>
+                <a href="#" class="pull-right m-t-xs"><small>Forgot password?</small></a>
+                <button type="submit" value="Login" class="btn btn-primary">Sign in</button>
+                <div class="line line-dashed"></div>
+                <div class="line line-dashed"></div> <p class="text-muted text-center">
+                <small>Do not have an account?</small></p> <a href="{% url 'register' %}" class="btn btn-default btn-block">Create an account</a>
+            </form>
+        </section> </div> </section> <!-- footer -->
+<footer id="footer">
+    <div class="text-center padder"> <p> <small>Medi<br>&copy; 2013</small> </p> </div> </footer> <!-- / footer --> <!-- Bootstrap --> <!-- App --> <script src="js/app.v1.js"></script> <script src="js/app.plugin.js"></script></body>
+
+</html>

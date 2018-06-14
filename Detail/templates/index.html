@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h4>Tickets</h4>
+<ul id="orders"></ul>
+<h4>Add Ticket Types</h4>
+<p>name: <input type="text" id="name"></p>
+<p>event: <input type="text" id="event" value='1'></p>
+<p>ticket-type: <select id="ticket"><option>free</option>
+<option>Paid</option>
+<option>Donation</option></select></p>
+<p>number of ticket : <input type="text" id="num_ticket"></p>
+<p>price : <input type="text" id="price"></p>
+<button id="add-order">ADD!</button>
+<script type="text/javascript"  src="{% static 'jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'main.js' %}"></script>
+
+</body>
+</html>

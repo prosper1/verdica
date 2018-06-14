@@ -1,0 +1,91 @@
+{% load staticfiles %}
+<!DOCTYPE html><html lang="en" class="bg-dark">
+
+<head> <meta charset="utf-8" /> <title</title> <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" /> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> <link rel="stylesheet" href="{% static 'css/font.css' %}" type="text/css" /> <link rel="stylesheet" href="{% static 'css/app.v1.css' %}" type="text/css" /> <!--[if lt IE 9]> <script src="js/ie/html5shiv.js"></script> <script src="js/ie/respond.min.js"></script> <script src="js/ie/excanvas.js"></script> <![endif]--></head><body class=""> <section id="content" class="m-t-lg wrapper-md animated fadeInDown"> <div class="container aside-xxl"> <a class="navbar-brand block" href="index.html">Notebook</a> <section class="panel panel-default m-t-lg bg-white">
+ 
+ <header class="panel-heading text-center"> <strong>Sign up</strong> </header> 
+ <style>
+ 
+input{
+	height:46px;
+	padding:10px 16px;
+	font-size:18px;
+	line-height:1.33;
+	border-radius:1px;
+	padding-right:42.5px;
+	display:block;
+	width:100%;
+	height:46px;
+	padding:6px 12px;
+	font-size:14px;
+	line-height:1.42857143;
+	color:#555;
+	background-color:#fff;
+	background-image:none;
+	border:1px solid #ccc;
+	border-radius:4px;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	
+}
+:focus{
+	border-color:#66afe9;
+	outline:0;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+	box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);}
+}
+
+
+</style>
+
+ <form method="post" action="" class="panel-body wrapper-lg"> 
+ {% csrf_token %}
+ <div class="form-group">
+	  <label class="control-label">First Name</label>
+
+			{{ form.first_name }}
+
+	</div>
+	<div class="form-group"> 
+		  <label class="control-label">Last Name</label> 
+		  {{ form.last_name }}
+	</div> 
+	<div class="form-group"> 
+			<label class="control-label">Username</label> 
+			{{ form.username }}
+	  </div> 
+	  <div class="form-group"> 
+			<label class="control-label">Email</label> 
+			{{ form.email }}
+	  </div> 
+	  <div class="form-group"> 
+			<label class="control-label">ID Number</label> 
+			{{ form1.id_number }}
+	  </div> 
+	  <div class="form-group">
+			<label class="control-label">Select if Patient or Practitioner</label> 
+			<select class="form-control input-lg">
+				{% for f in form1.usertype %}
+				<option value="{{f}}"></option>
+				{% endfor %}
+			</select>
+			
+	  </div> 
+ <div class="form-group">
+	  <label class="control-label">Password</label>
+	  {{ form.password }}
+ </div> 
+ 
+
+ <div class="checkbox"> <label> <input type="checkbox"> Agree the <a href="#">terms and policy</a> </label> </div> 
+
+ <button type="submit" class="btn btn-primary" value="Register">Sign up</button> 
+ <div class="line line-dashed"></div> <p class="text-muted text-center"><small>Already have an account?</small></p> <a href="{% url 'login' %}" class="btn btn-default btn-block">Sign in</a> 
+ <input type="hidden" name="next" value="{{ next }}" />
+</form> 
+
+
+ </section> </div> </section> <!-- footer --> <footer id="footer"> <div class="text-center padder clearfix"> <p> <small>Web app framework base on Bootstrap<br>&copy; 2013</small> </p> </div> </footer> <!-- / footer --> <!-- Bootstrap --> <!-- App --> <script src="js/app.v1.js"></script> <script src="js/app.plugin.js"></script></body>
+<!-- Mirrored from flatfull.com/themes/note/signup.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Mar 2018 21:03:14 GMT -->
+</html>
